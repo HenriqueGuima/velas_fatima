@@ -14,14 +14,14 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Google Login'),
+        title: const Text('Entrar com Google'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Welcome to Google Login',
+              'Bem vindo à app Velas de Fátima',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -33,19 +33,24 @@ class LoginScreen extends StatelessWidget {
                 await GoogleLogin().signIn();
 
                 try {
-                  await GoogleLogin().isSignedIn()
-                      ? Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => CandleScreen(prefs),
-                          ),
-                        )
-                      : Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => CandleScreen(prefs),
-                          ),
-                        );
+                  if (await GoogleLogin().isSignedIn()) {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MyApp(prefs),
+                      ),
+                    );
+                  } else {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CandleScreen(prefs),
+                      ),
+                    );
+                    print('Not signed in');
+                  }
                   // print('Not signed in');
                 } catch (e) {
                   print('Error signing in: $e');
@@ -53,7 +58,7 @@ class LoginScreen extends StatelessWidget {
                   print('Signing in');
                 }
               },
-              child: const Text('Login with Google'),
+              child: const Text('Entrar'),
             ),
           ],
         ),
