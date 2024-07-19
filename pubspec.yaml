@@ -36,6 +36,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   shared_preferences: ^2.2.2
+  sqflite: ^2.0.0+3
+  google_sign_in: ^5.0.4
+  path_provider: ^2.1.1
 
 dev_dependencies:
   flutter_test:
@@ -60,9 +63,15 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/unlit_candle.png
-    - assets/lit_candle.png
-    
+    - assets/white_candle.png
+    - assets/lit_white_candle.png
+    - assets/lit_red_candle.png
+    - assets/lit_green_candle.png
+    - assets/lit_blue_candle.png
+    - assets/red_candle.png
+    - assets/green_candle.png
+    - assets/blue_candle.png
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

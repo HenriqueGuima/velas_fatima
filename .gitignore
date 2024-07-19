@@ -42,3 +42,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+AppIcons.zip
+AppIcons/Assets.xcassets/AppIcon.appiconset/Contents.json
+macos/Flutter/GeneratedPluginRegistrant.swift
+android/app/src/main/AndroidManifest.xml
+pubspec.lock
